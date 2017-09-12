@@ -5,13 +5,21 @@
     android:orientation="vertical"
     tools:context="com.smatxmedia.nedi.smatxmedia.MainActivity">
 
+
     <Button
-        android:id="@+id/queryButton"
+        android:id="@+id/getJsonButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
+        android:layout_gravity="center"
         style="@style/Base.Widget.AppCompat.Button.Borderless"
-        android:text="Populate Listview With Data"/>
+        android:text="GET JSON RAW FORMAT"/>
+    <Button
+        android:id="@+id/parseJsonButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:text="PARSE JSON IN LISTVIEW"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -32,4 +40,7 @@
                 android:layout_height="wrap_content" />
         </ScrollView>
     </RelativeLayout>
+
+
+
 </LinearLayout>

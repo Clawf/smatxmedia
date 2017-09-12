@@ -1,14 +1,15 @@
 package com.smatxmedia.nedi.smatxmedia;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -18,8 +19,7 @@ import java.net.PasswordAuthentication;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
-
-    EditText emailText;
+    String json_string;
     TextView responseView;
     ProgressBar progressBar;
     //  static final String API_KEY = "USE_YOUR_OWN_API_KEY";
@@ -33,13 +33,36 @@ public class MainActivity extends AppCompatActivity {
         responseView = (TextView) findViewById(R.id.responseView);
          progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
-        Button queryButton = (Button) findViewById(R.id.queryButton);
-        queryButton.setOnClickListener(new View.OnClickListener() {
+        Button getJsonButton = (Button) findViewById(R.id.getJsonButton);
+        getJsonButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new RetrieveFeedTask().execute();
             }
         });
+
+        Button praseJsonButton = (Button) findViewById(R.id.parseJsonButton);
+        praseJsonButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(json_string==null){
+
+                    Toast.makeText(getApplicationContext(),"First get JSON", Toast.LENGTH_LONG).show();
+
+
+                }else {
+
+                    Intent intent = new Intent(this, DisplayListView.class);
+                    intent.putExtra("json_string", json_string);
+                    startActivity(intent);
+
+                }
+
+            }
+        });
+
+
     }
 
 
@@ -56,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             // Do some validation here
 
             try {
-                URL url = new URL("http://dev.mobiletv.bg/4P1/kidsvod/json.php?user=veroun1@gmail.com&pass=test1&mode=categories");
+              //  URL url = new URL("http://dev.mobiletv.bg/4P1/kidsvod/json.php?user=veroun1@gmail.com&pass=test1&mode=categories");
                 String urlString = new String("http://dev.mobiletv.bg/4P1/kidsvod/json.php?user=veroun1@gmail.com&pass=test1&mode=categories");
 
                 Authenticator.setDefault(new Authenticator(){
@@ -94,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
             }
             progressBar.setVisibility(View.GONE);
             Log.i("INFO", response);
+            json_string = response;
             responseView.setText(response);
         }
     }
