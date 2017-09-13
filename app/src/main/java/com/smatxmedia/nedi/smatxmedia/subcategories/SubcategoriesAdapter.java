@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.smatxmedia.nedi.smatxmedia.R;
+import com.smatxmedia.nedi.smatxmedia.subsubcategories.SubsubcategoriesDisplayListView;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -35,7 +36,9 @@ public class SubcategoriesAdapter extends ArrayAdapter {
     List list = new ArrayList();
 
     public SubcategoriesAdapter(@NonNull Context context, @LayoutRes int resource) {
+
         super(context, resource);
+        this.context = context;
     }
 
 
@@ -94,7 +97,7 @@ public class SubcategoriesAdapter extends ArrayAdapter {
             public void onClick(View v) {
 
 
-                Intent intent = new Intent(context, SubcategoriesDisplayListView.class);
+                Intent intent = new Intent(context, SubsubcategoriesDisplayListView.class);
                 intent.putExtra("subsubcategories", subcategories.getSubsubcategories());
                 context.startActivity(intent);
 

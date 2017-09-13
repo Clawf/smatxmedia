@@ -20,6 +20,7 @@
         </activity>
         <activity android:name=".categories.CategoriesDisplayListView"></activity>
         <activity android:name=".subcategories.SubcategoriesDisplayListView"></activity>
+        <activity android:name=".subsubcategories.SubsubcategoriesDisplayListView"></activity>
 
     </application>
 

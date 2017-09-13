@@ -31,7 +31,7 @@ public class CategoriesDisplayListView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.display_listview_layout);
+        setContentView(R.layout.categories_display_listview_layout);
         listView = (ListView) findViewById(R.id.listview);
 
         json_string = getIntent().getStringExtra("json_string");
