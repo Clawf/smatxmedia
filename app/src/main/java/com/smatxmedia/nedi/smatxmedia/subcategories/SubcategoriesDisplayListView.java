@@ -1,10 +1,12 @@
-package com.smatxmedia.nedi.smatxmedia;
+package com.smatxmedia.nedi.smatxmedia.subcategories;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
+
+import com.smatxmedia.nedi.smatxmedia.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;

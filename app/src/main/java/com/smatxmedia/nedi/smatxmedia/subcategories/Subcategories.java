@@ -1,4 +1,4 @@
-package com.smatxmedia.nedi.smatxmedia;
+package com.smatxmedia.nedi.smatxmedia.subcategories;
 
 /**
  * Created by Nedi on 13-Sep-17.

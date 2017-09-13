@@ -1,6 +1,7 @@
-package com.smatxmedia.nedi.smatxmedia;
+package com.smatxmedia.nedi.smatxmedia.subcategories;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -15,6 +16,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.smatxmedia.nedi.smatxmedia.R;
+
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +31,7 @@ import static com.smatxmedia.nedi.smatxmedia.R.id.cover;
 public class SubcategoriesAdapter extends ArrayAdapter {
 
 
+    private Context context;
     List list = new ArrayList();
 
     public SubcategoriesAdapter(@NonNull Context context, @LayoutRes int resource) {
@@ -74,7 +78,7 @@ public class SubcategoriesAdapter extends ArrayAdapter {
             subcategoriesHolder = (SubcategoriesHolder)row.getTag();
 
         }
-        Subcategories subcategories= (Subcategories) this.getItem(position);
+        final Subcategories subcategories= (Subcategories) this.getItem(position);
         new DownloadImageTask((ImageView) row.findViewById(cover))
                 .execute("https://tvc.mobiletv.bg/sxm/images/subcategory/"+subcategories.getCover());
       //  subcategoriesHolder.cover.setText(subcategories.getCover());
@@ -82,6 +86,22 @@ public class SubcategoriesAdapter extends ArrayAdapter {
         subcategoriesHolder.category_id.setText(subcategories.getCategory_id());
         subcategoriesHolder.subcategory_name.setText(subcategories.getSubcategory_name());
         subcategoriesHolder.subcategory_id.setText(subcategories.getSubcategory_id());
+
+
+        row.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+
+                Intent intent = new Intent(context, SubcategoriesDisplayListView.class);
+                intent.putExtra("subsubcategories", subcategories.getSubsubcategories());
+                context.startActivity(intent);
+
+
+            }
+        });
+
        return row;
     }
 

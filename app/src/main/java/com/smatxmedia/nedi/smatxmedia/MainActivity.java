@@ -13,6 +13,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.smatxmedia.nedi.smatxmedia.categories.CategoriesDisplayListView;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.Authenticator;

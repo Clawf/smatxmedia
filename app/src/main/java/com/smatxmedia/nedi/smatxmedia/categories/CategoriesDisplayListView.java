@@ -1,4 +1,4 @@
-package com.smatxmedia.nedi.smatxmedia;
+package com.smatxmedia.nedi.smatxmedia.categories;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,6 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.ListView;
+
+import com.smatxmedia.nedi.smatxmedia.R;
+import com.smatxmedia.nedi.smatxmedia.subcategories.SubcategoriesAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;

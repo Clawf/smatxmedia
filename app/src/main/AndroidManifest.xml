@@ -18,8 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CategoriesDisplayListView"></activity>
-        <activity android:name=".SubcategoriesDisplayListView"></activity>
+        <activity android:name=".categories.CategoriesDisplayListView"></activity>
+        <activity android:name=".subcategories.SubcategoriesDisplayListView"></activity>
 
     </application>
 
