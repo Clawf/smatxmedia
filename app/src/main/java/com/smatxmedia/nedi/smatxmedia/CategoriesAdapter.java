@@ -1,6 +1,7 @@
 package com.smatxmedia.nedi.smatxmedia;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,17 +14,21 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.smatxmedia.nedi.smatxmedia.R.id.tx_id;
+
 /**
  * Created by Nedi on 13-Sep-17.
  */
 
 public class CategoriesAdapter extends ArrayAdapter {
 
-
+    private Context context;
     List list = new ArrayList();
 
     public CategoriesAdapter(@NonNull Context context, @LayoutRes int resource) {
+
         super(context, resource);
+        this.context = context;
     }
 
 
@@ -51,9 +56,9 @@ public class CategoriesAdapter extends ArrayAdapter {
         CategoriesHolder categoriesHolder;
         if(row==null){
             LayoutInflater layoutInflater =(LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            row = layoutInflater.inflate(R.layout.row_layout,parent,false);
+            row = layoutInflater.inflate(R.layout.categories_row_layout,parent,false);
             categoriesHolder = new CategoriesHolder();
-            categoriesHolder.tx_id=row.findViewById(R.id.tx_id);
+            categoriesHolder.tx_id=row.findViewById(tx_id);
             categoriesHolder.tx_name=row.findViewById(R.id.tx_name);
             row.setTag(categoriesHolder);
         }
@@ -62,9 +67,25 @@ public class CategoriesAdapter extends ArrayAdapter {
             categoriesHolder = (CategoriesHolder)row.getTag();
 
         }
-        Categories categories= (Categories) this.getItem(position);
+        final Categories categories= (Categories) this.getItem(position);
         categoriesHolder.tx_id.setText(categories.getId());
         categoriesHolder.tx_name.setText(categories.getName());
+
+
+        row.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+
+                    Intent intent = new Intent(context, SubcategoriesDisplayListView.class);
+                    intent.putExtra("tx_id", tx_id);
+                    context.startActivity(intent);
+
+
+            }
+        });
+
        return row;
     }
 

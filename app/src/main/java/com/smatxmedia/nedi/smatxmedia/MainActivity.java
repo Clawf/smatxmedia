@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }else {
 
-                    Intent intent = new Intent(getBaseContext(), DisplayListView.class);
+                    Intent intent = new Intent(getBaseContext(), CategoriesDisplayListView.class);
                     intent.putExtra("json_string", json_string);
                     startActivity(intent);
 

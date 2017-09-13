@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.smatxmedia.nedi.smatxmedia.DisplayListView">
+    tools:context="com.smatxmedia.nedi.smatxmedia.CategoriesDisplayListView">
 
 
     <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/listview" >
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        android:id="@+id/listview"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
 
     </ListView>
 </android.support.constraint.ConstraintLayout>
