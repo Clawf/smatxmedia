@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="get JSON RAW format"/>
+        android:text="get JSON RAW format and save to shared preferences"/>
     <Button
         android:id="@+id/parseJsonButton"
         android:layout_width="wrap_content"

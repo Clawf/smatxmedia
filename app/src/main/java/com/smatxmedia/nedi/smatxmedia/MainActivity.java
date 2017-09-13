@@ -1,8 +1,10 @@
 package com.smatxmedia.nedi.smatxmedia;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -29,9 +31,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         responseView = (TextView) findViewById(R.id.responseView);
-         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        json_string = sp.getString("json_string", null);
+        if(json_string!=null){
+
+
+            System.out.println(000000000000000000000000+json_string);
+            responseView.setText(json_string);
+
+        }
 
         Button getJsonButton = (Button) findViewById(R.id.getJsonButton);
         getJsonButton.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
 
                 if(json_string==null){
 
-                    Toast.makeText(getApplicationContext(),"First get JSON", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Get JSON at least 1 time ", Toast.LENGTH_LONG).show();
+
 
 
                 }else {
@@ -119,6 +131,12 @@ public class MainActivity extends AppCompatActivity {
             Log.i("INFO", response);
             json_string = response;
             responseView.setText(response);
+
+            SharedPreferences sp =  PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putString("json_string", response);
+            editor.commit();
+
         }
     }
 }
