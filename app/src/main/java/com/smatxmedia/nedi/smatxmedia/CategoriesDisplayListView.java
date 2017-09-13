@@ -42,8 +42,6 @@ public class CategoriesDisplayListView extends AppCompatActivity {
             String name;
 
             while(countCategories< jsonArrayCategories.length()){
-
-
                 JSONObject JO = jsonArrayCategories.getJSONObject(countCategories);
                 id =  JO.getString("category_id");
                 name = JO.getString("category_name");
@@ -52,46 +50,11 @@ public class CategoriesDisplayListView extends AppCompatActivity {
                 countCategories ++;
             }
 
-
-//            int countSubcategories = 0;
-//            String subcategory_id;
-//            String category_id;
-//            String subcategory_name;
-//            String cover;
-//            String subsubcategories;
-//            jsonArraySubcategories = jsonObject.getJSONArray("subcategories");
-//            subcategoriesAdapter = new SubcategoriesAdapter(this,R.layout.subcategories_row_layout);
-//            listView.setAdapter(subcategoriesAdapter);
-//            while(countSubcategories< jsonArraySubcategories.length()){
-//
-//
-//                JSONObject JO = jsonArraySubcategories.getJSONObject(countSubcategories);
-//                subcategory_id =  JO.getString("subcategory_id");
-//                category_id = JO.getString("category_id");
-//                subcategory_name =  JO.getString("subcategory_name");
-//                cover = JO.getString("cover");
-//                subsubcategories =  JO.getString("subcategories");
-//                Subcategories subcategories = new Subcategories(subcategory_id,category_id,subcategory_name,cover,subsubcategories);
-//                subcategoriesAdapter.add(subcategories);
-//                countSubcategories ++;
-//            }
-
-
-            //new DownloadImageTask((ImageView) findViewById(R.id.avatar))
-            //        .execute(authorDetails.getString("avatar_url"));
-
-
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-
-
-
     }
-
-
 
 private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
     ImageView bmImage;
