@@ -23,18 +23,18 @@ import static com.smatxmedia.nedi.smatxmedia.R.id.tx_sub_id;
  * Created by Nedi on 13-Sep-17.
  */
 
-public class SubsubategoriesAdapter extends ArrayAdapter {
+public class SubsubcategoriesAdapter extends ArrayAdapter {
 
     List list = new ArrayList();
 
-    public SubsubategoriesAdapter(@NonNull Context context, @LayoutRes int resource) {
+    public SubsubcategoriesAdapter(@NonNull Context context, @LayoutRes int resource) {
 
         super(context, resource);
 
     }
 
 
-    public void add(Subsubategories object) {
+    public void add(Subsubcategories object) {
         super.add(object);
         list.add(object);
 
@@ -72,10 +72,10 @@ public class SubsubategoriesAdapter extends ArrayAdapter {
             subsubcategoriesHolder = (SubsubcategoriesHolder)row.getTag();
 
         }
-        final Subsubategories subsubategories = (Subsubategories) this.getItem(position);
-        subsubcategoriesHolder.tx_id.setText(subsubategories.getId());
-        subsubcategoriesHolder.tx_name.setText(subsubategories.getName());
-        subsubcategoriesHolder.tx_sub_id.setText(subsubategories.getSub_id());
+        final Subsubcategories subsubcategories = (Subsubcategories) this.getItem(position);
+        subsubcategoriesHolder.tx_id.setText("ID - " + subsubcategories.getId());
+        subsubcategoriesHolder.tx_name.setText(subsubcategories.getName());
+        subsubcategoriesHolder.tx_sub_id.setText("SubID - " + subsubcategories.getSub_id());
 
 
 

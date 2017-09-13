@@ -23,6 +23,7 @@ import java.net.PasswordAuthentication;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String DATA_JSON_URL = "http://dev.mobiletv.bg/4P1/kidsvod/json.php?user=veroun1@gmail.com&pass=test1&mode=categories";
     String json_string;
     TextView responseView;
     ProgressBar progressBar;
@@ -93,8 +94,8 @@ public class MainActivity extends AppCompatActivity {
             // Do some validation here
 
             try {
-              //  URL url = new URL("http://dev.mobiletv.bg/4P1/kidsvod/json.php?user=veroun1@gmail.com&pass=test1&mode=categories");
-                String urlString = new String("http://dev.mobiletv.bg/4P1/kidsvod/json.php?user=veroun1@gmail.com&pass=test1&mode=categories");
+              //  DATA_JSON_URL url = new DATA_JSON_URL("http://dev.mobiletv.bg/4P1/kidsvod/json.php?user=veroun1@gmail.com&pass=test1&mode=categories");
+                String urlString = new String(DATA_JSON_URL);
 
                 Authenticator.setDefault(new Authenticator(){
                     protected PasswordAuthentication getPasswordAuthentication() {

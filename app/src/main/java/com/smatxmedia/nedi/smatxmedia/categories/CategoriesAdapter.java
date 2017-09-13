@@ -71,8 +71,8 @@ public class CategoriesAdapter extends ArrayAdapter {
 
         }
         final Categories categories= (Categories) this.getItem(position);
-        categoriesHolder.tx_id.setText(categories.getId());
-        categoriesHolder.tx_name.setText(categories.getName());
+        categoriesHolder.tx_id.setText("ID - " + categories.getId());
+        categoriesHolder.tx_name.setText("Name - " + categories.getName());
 
 
         row.setOnClickListener(new View.OnClickListener() {

@@ -15,7 +15,7 @@ public class SubsubcategoriesDisplayListView extends AppCompatActivity {
 
     //JSONObject jsonObject;
    JSONArray jsonArrayCategories;
-    SubsubategoriesAdapter subsubategoriesAdapter;
+    SubsubcategoriesAdapter subsubcategoriesAdapter;
     ListView listView;
     String subcategories_category_id;
 
@@ -33,8 +33,8 @@ public class SubsubcategoriesDisplayListView extends AppCompatActivity {
         subcategories_category_id = getIntent().getStringExtra("subsubcategories");
 
 
-        subsubategoriesAdapter = new SubsubategoriesAdapter(this,R.layout.subsubcategories_row_layout);
-        listView.setAdapter(subsubategoriesAdapter);
+        subsubcategoriesAdapter = new SubsubcategoriesAdapter(this,R.layout.subsubcategories_row_layout);
+        listView.setAdapter(subsubcategoriesAdapter);
         try {
            // jsonObject = new JSONObject(subcategories_category_id);
             jsonArrayCategories = new JSONArray(subcategories_category_id);
@@ -49,12 +49,12 @@ public class SubsubcategoriesDisplayListView extends AppCompatActivity {
                 sub_id = JO.getString("subcategory_id");
                 name = JO.getString("sub_subcategory_name");
 
-                Subsubategories subsubategories = new Subsubategories(id,sub_id,name);
-                subsubategoriesAdapter.add(subsubategories);
+                Subsubcategories subsubcategories = new Subsubcategories(id,sub_id,name);
+                subsubcategoriesAdapter.add(subsubcategories);
                 countCategories ++;
 
             }
-            if (subsubategoriesAdapter.getCount() <=0){
+            if (subsubcategoriesAdapter.getCount() <=0){
 
                 Toast.makeText(getBaseContext(), "List is empty!",
                         Toast.LENGTH_LONG).show();

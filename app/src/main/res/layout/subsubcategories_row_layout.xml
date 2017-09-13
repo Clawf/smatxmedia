@@ -4,7 +4,7 @@
     android:layout_height="75dp">
     
     <TextView
-        android:layout_width="60dp"
+        android:layout_width="80dp"
         android:layout_height="match_parent"
         android:id="@+id/tx_id"
         android:text ="ID"
@@ -12,7 +12,7 @@
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         />
     <TextView
-        android:layout_width="60dp"
+        android:layout_width="120dp"
         android:layout_height="match_parent"
         android:id="@+id/tx_sub_id"
         android:layout_toRightOf="@+id/tx_id"

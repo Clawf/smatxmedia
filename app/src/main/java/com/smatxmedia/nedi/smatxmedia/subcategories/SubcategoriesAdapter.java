@@ -86,9 +86,9 @@ public class SubcategoriesAdapter extends ArrayAdapter {
                 .execute("https://tvc.mobiletv.bg/sxm/images/subcategory/"+subcategories.getCover());
       //  subcategoriesHolder.cover.setText(subcategories.getCover());
 
-        subcategoriesHolder.category_id.setText(subcategories.getCategory_id());
-        subcategoriesHolder.subcategory_name.setText(subcategories.getSubcategory_name());
-        subcategoriesHolder.subcategory_id.setText(subcategories.getSubcategory_id());
+        subcategoriesHolder.category_id.setText("ID " + subcategories.getCategory_id());
+        subcategoriesHolder.subcategory_name.setText( subcategories.getSubcategory_name());
+        subcategoriesHolder.subcategory_id.setText("SubID " + subcategories.getSubcategory_id());
 
 
         row.setOnClickListener(new View.OnClickListener() {

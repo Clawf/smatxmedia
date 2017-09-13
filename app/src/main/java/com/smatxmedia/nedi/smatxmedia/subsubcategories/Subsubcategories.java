@@ -4,10 +4,10 @@ package com.smatxmedia.nedi.smatxmedia.subsubcategories;
  * Created by Nedi on 13-Sep-17.
  */
 
-public class Subsubategories {
+public class Subsubcategories {
 
 
-    public Subsubategories(String id,String sub_id, String name){
+    public Subsubcategories(String id, String sub_id, String name){
 
         this.setId(id);
         this.setName(name);
