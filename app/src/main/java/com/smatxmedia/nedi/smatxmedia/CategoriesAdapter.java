@@ -79,7 +79,7 @@ public class CategoriesAdapter extends ArrayAdapter {
 
 
                     Intent intent = new Intent(context, SubcategoriesDisplayListView.class);
-                    intent.putExtra("tx_id", tx_id);
+                    intent.putExtra("tx_id", categories.getId());
                     context.startActivity(intent);
 
 

@@ -17,6 +17,7 @@ public class SubcategoriesDisplayListView extends AppCompatActivity {
     JSONArray jsonArraySubcategories;
     SubcategoriesAdapter subcategoriesAdapter;
     ListView listView;
+    String categories_category_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,8 @@ public class SubcategoriesDisplayListView extends AppCompatActivity {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         json_string = sp.getString("json_string", null);
 
+        //getting the categories_category_id from the other activity
+        categories_category_id = getIntent().getStringExtra("tx_id");
           listView.setAdapter(subcategoriesAdapter);
         try {
             jsonObject = new JSONObject(json_string);
@@ -49,9 +52,11 @@ public class SubcategoriesDisplayListView extends AppCompatActivity {
                 category_id = JO.getString("category_id");
                 subcategory_name =  JO.getString("subcategory_name");
                 cover = JO.getString("cover");
-                subsubcategories =  "wtfff";//JO.getString("subcategories");
+                subsubcategories =  JO.getString("subcategories");
                 Subcategories subcategories = new Subcategories(subcategory_id,category_id,subcategory_name,cover,subsubcategories);
+                if(categories_category_id.equals(category_id)){
                 subcategoriesAdapter.add(subcategories);
+                }
                 countSubcategories ++;
             }
 
