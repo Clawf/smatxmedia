@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.smatxmedia.nedi.smatxmedia.R;
 
@@ -61,10 +62,16 @@ public class SubcategoriesDisplayListView extends AppCompatActivity {
                 }
                 countSubcategories ++;
             }
+            if (subcategoriesAdapter.getCount() <=0){
 
+                Toast.makeText(getBaseContext(), "List is empty!",
+                        Toast.LENGTH_LONG).show();
+
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
 
     }
 

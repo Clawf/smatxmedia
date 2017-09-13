@@ -31,7 +31,6 @@ public class SubsubategoriesAdapter extends ArrayAdapter {
 
         super(context, resource);
 
-        System.out.println("11111111111111111SubsubategoriesAdapter" );
     }
 
 
@@ -39,7 +38,6 @@ public class SubsubategoriesAdapter extends ArrayAdapter {
         super.add(object);
         list.add(object);
 
-        System.out.println("11111111111111111add" );
     }
 
     @Override
@@ -60,8 +58,6 @@ public class SubsubategoriesAdapter extends ArrayAdapter {
         row = convertView;
         SubsubcategoriesHolder subsubcategoriesHolder;
         if(row==null){
-            System.out.println("11111111111111111getView" );
-
             LayoutInflater layoutInflater =(LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = layoutInflater.inflate(R.layout.subsubcategories_row_layout,parent,false);
             subsubcategoriesHolder = new SubsubcategoriesHolder();
@@ -69,7 +65,6 @@ public class SubsubategoriesAdapter extends ArrayAdapter {
             subsubcategoriesHolder.tx_sub_id=row.findViewById(tx_sub_id);
             subsubcategoriesHolder.tx_name=row.findViewById(tx_name);
 
-            System.out.println("11111111111111111json_string" + subsubcategoriesHolder.tx_name.toString());
             row.setTag(subsubcategoriesHolder);
         }
         else {

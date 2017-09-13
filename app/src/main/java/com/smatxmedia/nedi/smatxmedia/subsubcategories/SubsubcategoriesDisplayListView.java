@@ -3,6 +3,7 @@ package com.smatxmedia.nedi.smatxmedia.subsubcategories;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.smatxmedia.nedi.smatxmedia.R;
 
@@ -31,7 +32,6 @@ public class SubsubcategoriesDisplayListView extends AppCompatActivity {
         //getting the categories_category_id from the other activity
         subcategories_category_id = getIntent().getStringExtra("subsubcategories");
 
-        System.out.println("11111111111111111subcategories_category_id" + subcategories_category_id);
 
         subsubategoriesAdapter = new SubsubategoriesAdapter(this,R.layout.subsubcategories_row_layout);
         listView.setAdapter(subsubategoriesAdapter);
@@ -49,14 +49,17 @@ public class SubsubcategoriesDisplayListView extends AppCompatActivity {
                 sub_id = JO.getString("subcategory_id");
                 name = JO.getString("sub_subcategory_name");
 
-                System.out.println("11111111111111111countCategories" + countCategories);
-                System.out.println("11111111111111111sub_id" + sub_id);
                 Subsubategories subsubategories = new Subsubategories(id,sub_id,name);
                 subsubategoriesAdapter.add(subsubategories);
                 countCategories ++;
 
             }
+            if (subsubategoriesAdapter.getCount() <=0){
 
+                Toast.makeText(getBaseContext(), "List is empty!",
+                        Toast.LENGTH_LONG).show();
+
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }

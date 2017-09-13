@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.smatxmedia.nedi.smatxmedia.R;
 import com.smatxmedia.nedi.smatxmedia.subcategories.SubcategoriesAdapter;
@@ -56,7 +57,12 @@ public class CategoriesDisplayListView extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        if (categoriesAdapter.getCount() <=0){
 
+            Toast.makeText(getBaseContext(), "List is empty!",
+                    Toast.LENGTH_LONG).show();
+
+        }
     }
 
 private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
